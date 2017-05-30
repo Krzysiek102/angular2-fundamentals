@@ -1,3 +1,4 @@
+import { DurationPipe } from './events/shared/duration.pipe';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
@@ -36,6 +37,7 @@ import { appRoutes } from './route';
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
+        DurationPipe,
         Error404Component
     ],
     providers: [

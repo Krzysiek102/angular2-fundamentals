@@ -17,8 +17,10 @@ import { EventsListComponent } from './events/events-list.component'
 import { NavBarComponent } from './nav/navbar.component'
 import { NgModule } from '@angular/core'
 import { RouterModule } from "@angular/router";
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { appRoutes } from './route';
+
+declare let toastr: Toastr;
 
 @NgModule({
     imports: [
@@ -42,9 +44,9 @@ import { appRoutes } from './route';
     ],
     providers: [
         EventService,
+        { provide: TOASTR_TOKEN, useValue: toastr },
         EventRouteActivator,
         EventListResolver,
-        ToastrService,
         AuthService,
         { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
     ],

@@ -1,3 +1,5 @@
+import { VoterService } from './events/event-details/voter.service';
+import { UpvoteComponent } from './events/event-details/upvote.component';
 import { ModalTriggerDirective } from './common/modalTrigger.directive';
 import { SimpleModalComponent } from './common/simpleModal.component';
 import { JQ_TOKEN } from './common/jQuery.service';
@@ -44,6 +46,7 @@ declare let jQuery: Object;
         SessionListComponent,
         CollapsibleWellComponent,
         SimpleModalComponent,
+        UpvoteComponent,
         ModalTriggerDirective,
         DurationPipe,
         Error404Component
@@ -55,6 +58,7 @@ declare let jQuery: Object;
         EventRouteActivator,
         EventListResolver,
         AuthService,
+        VoterService,
         { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
     ],
     bootstrap: [EventsAppComponent]

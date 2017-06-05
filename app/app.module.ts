@@ -1,3 +1,4 @@
+import { LocationValidator } from './events/location-validator.directive';
 import { VoterService } from './events/event-details/voter.service';
 import { UpvoteComponent } from './events/event-details/upvote.component';
 import { ModalTriggerDirective } from './common/modalTrigger.directive';
@@ -49,6 +50,7 @@ declare let jQuery: Object;
         UpvoteComponent,
         ModalTriggerDirective,
         DurationPipe,
+        LocationValidator,
         Error404Component
     ],
     providers: [

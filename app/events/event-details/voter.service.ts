@@ -12,7 +12,7 @@ export class VoterService {
 
     deleteVoter(eventId: number, session: ISession, voterName: string) {
         session.voters = session.voters.filter(voter => voter !== voterName);
-        this.http.delete(`api/events/${eventId}/sessions/${session.id}/voters/${voterName}`)
+        this.http.delete(`/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`)
             .catch(this.handleError).subscribe();
     }
 
@@ -22,7 +22,7 @@ export class VoterService {
             { 'Content-Type': 'application/json' }
         );
         let options = new RequestOptions({ headers: headers });
-        let url = `api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
+        let url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
         this.http.post(url, JSON.stringify({}), options)
             .catch(this.handleError).subscribe();
     }

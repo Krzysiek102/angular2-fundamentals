@@ -1,9 +1,10 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from "rxjs/Observable";
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { IUser } from './user.model';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
@@ -36,5 +37,22 @@ export class AuthService {
     updateCurrentUser(firstName: string, lastName: string) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
+    }
+
+    checkAuthenticationStatus() {
+        return this.http.get('/api/currentIdentity')
+            .map((response: any) => {
+                if (response._body) {
+                    return response.json();
+                } else {
+                    return {};
+                }
+            })
+            .do(currentUser => {
+                if (!!currentUser.userName) {
+                    this.currentUser = currentUser;
+                }
+            })
+            .subscribe();
     }
 }

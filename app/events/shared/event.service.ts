@@ -38,11 +38,6 @@ export class EventService {
             .catch(this.handleError);
     }
 
-    updateEvent(event: IEvent) {
-        let index = EVENTS.findIndex(x => x.id === event.id);
-        EVENTS[index] = event;
-    }
-
     searchSessions(searchTerm: string) {
         var term = searchTerm.toLocaleLowerCase();
         var results: ISession[] = [];

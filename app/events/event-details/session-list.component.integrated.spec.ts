@@ -6,6 +6,7 @@ import { AuthService } from './../../user/auth.service';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { SessionListComponent } from './session-list.component';
 import { DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
 
 describe('SessionListComponent', () => {
     let fixture: ComponentFixture<SessionListComponent>;
@@ -68,6 +69,8 @@ describe('SessionListComponent', () => {
             fixture.detectChanges();
 
             expect(element.querySelector("[well-title]").textContent)
+                .toContain('Session 1');
+            expect(debugEl.query(By.css("[well-title")).nativeElement.textContent)
                 .toContain('Session 1');
         });
 

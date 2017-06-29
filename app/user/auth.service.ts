@@ -15,15 +15,15 @@ export class AuthService {
     }
 
     loginUser(userName: string, password: string) {
-        let headers = new Headers(
-            { 'Content-Type': 'application/json' }
+        const headers = new Headers(
+            { 'Content-Type': 'application/json' },
         );
-        let options = new RequestOptions({ headers: headers });
-        let loginInfo = { username: userName, password: password };
+        const options = new RequestOptions({ headers });
+        const loginInfo = { username: userName, password };
         return this.http.post('/api/login', JSON.stringify(loginInfo), options)
             .do(response => {
                 if (response) {
-                    this.currentUser = <IUser>response.json().user;
+                    this.currentUser = response.json().user as IUser;
                 }
             }).catch(error => {
                 return Observable.of(false);
@@ -38,10 +38,10 @@ export class AuthService {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
 
-        let headers = new Headers(
-            { 'Content-Type': 'application/json' }
+        const headers = new Headers(
+            { 'Content-Type': 'application/json' },
         );
-        let options = new RequestOptions({ headers: headers });
+        const options = new RequestOptions({ headers });
         return this.http.put(`/api/users/${this.currentUser.id}`,
             JSON.stringify(this.currentUser), options);
     }
@@ -63,12 +63,12 @@ export class AuthService {
             .subscribe();
     }
 
-    logout(){
+    logout() {
         this.currentUser = undefined;
-        let headers = new Headers(
-            { 'Content-Type': 'application/json' }
+        const headers = new Headers(
+            { 'Content-Type': 'application/json' },
         );
-        let options = new RequestOptions({ headers: headers });
+        const options = new RequestOptions({ headers });
         return this.http.post(`/api/logout`, JSON.stringify({}), options);
     }
 }

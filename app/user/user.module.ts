@@ -11,11 +11,11 @@ import { userRoutes } from './user.routes';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forChild(userRoutes)
+        RouterModule.forChild(userRoutes),
     ],
     declarations: [
         ProfileComponent,
-        LoginComponent
+        LoginComponent,
     ],
     providers: [
 

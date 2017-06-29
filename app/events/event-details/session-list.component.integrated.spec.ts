@@ -14,14 +14,13 @@ describe('SessionListComponent', () => {
     let element: HTMLElement;
     let debugEl: DebugElement;
 
-
     beforeEach(async(() => {
-        let mockAuthService = {
+        const mockAuthService = {
             isAuthenticated: () => true,
-            currentUser: { userName: "Joe" }
+            currentUser: { userName: "Joe" },
         };
-        let mockVoterService = {
-            userHasVoted: () => true
+        const mockVoterService = {
+            userHasVoted: () => true,
         };
         TestBed.configureTestingModule({
             imports: [],
@@ -29,16 +28,15 @@ describe('SessionListComponent', () => {
                 SessionListComponent,
                 UpvoteComponent,
                 DurationPipe,
-                CollapsibleWellComponent
+                CollapsibleWellComponent,
             ],
             providers: [
                 { provide: AuthService, useValue: mockAuthService },
                 { provide: VoterService, useValue: mockVoterService },
             ],
-            schemas: []
+            schemas: [],
         }).compileComponents();
     }));
-
 
     beforeEach(() => {
         fixture = TestBed.createComponent(SessionListComponent);
@@ -58,8 +56,8 @@ describe('SessionListComponent', () => {
                     duration: 1,
                     level: "beginner",
                     abstract: "abstract",
-                    voters: ["john", "bob"]
-                }
+                    voters: ["john", "bob"],
+                },
             ];
             component.filterBy = "all";
             component.sortBy = "name";

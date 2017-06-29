@@ -28,8 +28,8 @@ import { restrictedWords } from "../shared/restricted-words.validator";
         }
         .error :ms-input-placeholder{
             color: #999;
-        }            
-    `]
+        }
+    `],
 })
 export class CreateSessionComponent implements OnInit {
     @Output() saveNewSession = new EventEmitter();
@@ -54,20 +54,20 @@ export class CreateSessionComponent implements OnInit {
             presenter: this.presenter,
             duration: this.duration,
             level: this.level,
-            abstract: this.abstract
-        })
+            abstract: this.abstract,
+        });
     }
 
     saveSession(formValues) {
-        let session: ISession = {
+        const session: ISession = {
             id: undefined,
             name: formValues.name,
             duration: +formValues.duration,
             level: formValues.level,
             presenter: formValues.presenter,
             abstract: formValues.abstract,
-            voters: []
-        }
+            voters: [],
+        };
         this.saveNewSession.emit(session);
     }
 

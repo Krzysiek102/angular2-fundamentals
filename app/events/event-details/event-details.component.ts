@@ -3,12 +3,11 @@ import { EventService } from './../shared/event.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
 
-
 @Component({
     templateUrl: '/app/events/event-details/event-details.component.html',
     styles: [`
         .container{
-            padding-left: 20px; 
+            padding-left: 20px;
             padding-right: 20px;
         }
         .event-image{
@@ -17,7 +16,7 @@ import { ActivatedRoute, Params } from "@angular/router";
         .a {
             cursor: pointer;
         }
-    `]
+    `],
 })
 export class EventDetailsComponent implements OnInit {
     event: IEvent;
@@ -26,7 +25,7 @@ export class EventDetailsComponent implements OnInit {
     sortBy: string = 'votes';
 
     constructor(private eventService: EventService,
-        private route: ActivatedRoute) {
+                private route: ActivatedRoute) {
 
     }
 

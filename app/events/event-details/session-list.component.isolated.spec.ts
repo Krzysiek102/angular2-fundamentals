@@ -3,22 +3,19 @@ import { SessionListComponent } from './session-list.component';
 
 describe('SessionListComponent', () => {
     let component: SessionListComponent;
-    let mockAuthService;
-    let mockVoterService;
 
     beforeEach(() => {
-        component = new SessionListComponent(mockAuthService, mockVoterService);
+        component = new SessionListComponent(undefined, undefined);
     });
-
 
     describe('onOnChanges', () => {
 
         it('should filter the session correctly', () => {
-            component.sessions = <ISession[]>[
+            component.sessions = [
                 { name: "session 1", level: "intermediate" },
                 { name: "session 2", level: "intermediate" },
                 { name: "session 3", level: "beginner" },
-            ];
+            ] as ISession[];
             component.filterBy = "intermediate";
             component.sortBy = "name";
             component.eventId = 3;
@@ -29,11 +26,11 @@ describe('SessionListComponent', () => {
         });
 
         it('should sort the session correctly', () => {
-            component.sessions = <ISession[]>[
+            component.sessions = [
                 { name: "session 1", level: "intermediate" },
                 { name: "session 3", level: "intermediate" },
                 { name: "session 2", level: "beginner" },
-            ];
+            ] as ISession[];
             component.filterBy = "all";
             component.sortBy = "name";
             component.eventId = 3;

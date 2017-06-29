@@ -18,11 +18,11 @@ export class VoterService {
 
     addVoter(eventId: number, session: ISession, voterName: string) {
         session.voters.push(voterName);
-        let headers = new Headers(
-            { 'Content-Type': 'application/json' }
+        const headers = new Headers(
+            { 'Content-Type': 'application/json' },
         );
-        let options = new RequestOptions({ headers: headers });
-        let url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
+        const options = new RequestOptions({ headers });
+        const url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
         this.http.post(url, JSON.stringify({}), options)
             .catch(this.handleError).subscribe();
     }
@@ -31,7 +31,7 @@ export class VoterService {
         return session.voters.some(voter => voter === voterName);
     }
 
-    private handleError(error: Response) {
+    handleError(error: Response) {
         return Observable.throw(error.statusText);
     }
 }

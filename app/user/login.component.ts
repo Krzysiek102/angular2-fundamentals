@@ -10,13 +10,13 @@ import { Component } from '@angular/core';
             color: #E05C65;
             padding-left: 10px;
         }
-    `]
+    `],
 })
 export class LoginComponent {
     loginInvalid: boolean = false;
 
     constructor(private authService: AuthService,
-        private router: Router) {
+                private router: Router) {
 
     }
     login(formValues) {

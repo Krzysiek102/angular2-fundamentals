@@ -4,17 +4,17 @@ import { Validator, FormGroup, NG_VALIDATORS } from "@angular/forms";
 @Directive({
     selector: '[validateLocation]',
     providers: [
-        { provide: NG_VALIDATORS, useExisting: LocationValidator, multi: true }
-    ]
+        { provide: NG_VALIDATORS, useExisting: LocationValidator, multi: true },
+    ],
 })
 export class LocationValidator implements Validator {
     validate(formGroup: FormGroup): {
         [key: string]: any;
     } {
-        let addressControl = formGroup.controls['address'];
-        let cityControl = formGroup.controls['city'];
-        let countryControl = formGroup.controls['country'];
-        let onlineUrlControl = (<FormGroup>formGroup.root).controls['onlineUrl'];
+        const addressControl = formGroup.controls['address'];
+        const cityControl = formGroup.controls['city'];
+        const countryControl = formGroup.controls['country'];
+        const onlineUrlControl = (formGroup.root as FormGroup).controls['onlineUrl'];
 
         if (
             (addressControl && addressControl.value
@@ -25,13 +25,10 @@ export class LocationValidator implements Validator {
         ) {
             return null;
         } else {
-            return { validateLocation: false }
+            return { validateLocation: false };
         }
     }
     registerOnValidatorChange(fn: () => void): void {
         throw new Error("Method not implemented.");
-    }
-    constructor() {
-
     }
 }

@@ -11,24 +11,24 @@ import { SessionListComponent } from './events/event-details/session-list.compon
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './user/auth.service';
-import { BrowserModule } from '@angular/platform-browser'
+import { BrowserModule } from '@angular/platform-browser';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { EventListResolver } from './events/events-list-resolver.service';
-import { EventService } from './events/shared/event.service'
-import { EventThumbnailComponent } from './events/event-thumbnail.component'
-import { EventsAppComponent } from './events-app.component'
-import { EventsListComponent } from './events/events-list.component'
-import { NavBarComponent } from './nav/navbar.component'
-import { NgModule } from '@angular/core'
+import { EventService } from './events/shared/event.service';
+import { EventThumbnailComponent } from './events/event-thumbnail.component';
+import { EventsAppComponent } from './events-app.component';
+import { EventsListComponent } from './events/events-list.component';
+import { NavBarComponent } from './nav/navbar.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
 import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { appRoutes } from './route';
 
 declare let toastr: Toastr;
-declare let jQuery: Object;
+declare let jQuery: object;
 
 @NgModule({
     imports: [
@@ -36,7 +36,7 @@ declare let jQuery: Object;
         FormsModule,
         HttpModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
     ],
     declarations: [
         EventsAppComponent,
@@ -53,7 +53,7 @@ declare let jQuery: Object;
         ModalTriggerDirective,
         DurationPipe,
         LocationValidator,
-        Error404Component
+        Error404Component,
     ],
     providers: [
         EventService,
@@ -63,9 +63,9 @@ declare let jQuery: Object;
         EventResolver,
         AuthService,
         VoterService,
-        { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+        { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     ],
-    bootstrap: [EventsAppComponent]
+    bootstrap: [EventsAppComponent],
 })
 export class AppModule {
 

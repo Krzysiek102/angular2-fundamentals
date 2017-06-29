@@ -27,7 +27,7 @@ import { Component, Input, ViewChild, ElementRef, Inject } from '@angular/core';
             height: 250px;
             overflow-y: scroll;
         }
-    `]
+    `],
 })
 export class SimpleModalComponent {
     @Input() title: string;

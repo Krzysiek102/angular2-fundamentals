@@ -24,13 +24,12 @@ import { Router } from "@angular/router";
         }
         .error :ms-input-placeholder{
             color: #999;
-        }            
-    `]
+        }
+    `],
 })
 export class CreateEventComponent {
-    isDirty: boolean = true
-    constructor(private router: Router,
-        private eventService: EventService) {
+    isDirty: boolean = true;
+    constructor(private router: Router, private eventService: EventService) {
 
     }
 

@@ -43,7 +43,7 @@ export class EventService {
         }).catch(this.handleError);
     }
 
-    private handleError(error: Response) {
+    handleError(error: Response) {
         return Observable.throw(error.statusText);
     }
 }
